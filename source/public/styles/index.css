@@ -1,0 +1,47 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.standard-btn {
+    width: 150px;
+    height: 40px;
+    margin: 0 15px 0 0;
+    padding: 11px 20px 10px;
+    border-radius: 5px;
+    background-color: #1f86ff;
+    border: 1px solid transparent;
+    color: white;
+}
+
+.standard-btn:hover {
+    background-color: white;
+    border: 1px solid #5ca5fc;
+    color: #5ca5fc;
+}
+
+.filters-btn.filters-drpd {
+    width: 150px;
+    height: 40px;
+    margin: 0 15px 0 0;
+    padding: 11px 20px 10px;
+    border-radius: 5px;
+    background-color: #1f86ff;
+    border: 1px solid transparent;
+    color: white;
+}
+
+.filters-btn {
+    width: 150px;
+    height: 40px;
+    margin: 0 15px 0 0;
+    padding: 11px 20px 10px;
+    border-radius: 5px;
+    background-color: #1f86ff;
+    border: 1px solid transparent;
+    color: white;
+}
+
+.filters {
+    margin-top: 20px;
+}
