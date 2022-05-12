@@ -1,0 +1,26 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+#btn {
+    width: 150px;
+    height: 40px;
+    margin: 0 15px 0 0;
+    padding: 11px 20px 10px;
+    border-radius: 5px;
+    background-color: #1f86ff;
+    border: 1px solid transparent;
+    color: white;
+}
+
+.inputfields {
+    margin-top: 20px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+form {
+    max-width: 800px;
+}
