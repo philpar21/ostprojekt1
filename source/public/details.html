@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+
+    <link rel="stylesheet" href="styles/details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<main>
+    <form id="form" action="./index.html" action="POST">
+        <div>
+            <legend>Mark as done</legend>
+            <input type="radio" name="grid" id="yes" value="yes" />
+            <label for="yes">Yes</label>
+            <input type="radio" name="grid" id="no" value="no" />
+            <label for="no">No</label>
+        </div>
+
+        <div class="inputfields">
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" />
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description"></textarea>
+
+            <label for="importance">Importance</label>
+            <select name="importance" id="importance">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <label for="duedate">Duedate</label>
+            <input id="duedate" type="date" name="duedate" />
+        </div>
+
+        <div class="all-btn">
+            <button id="btn" type="submit">Update</button>
+            <button id="btn" type="submit">Update & back</button>
+            <button id="btn" type="submit">No save & close</button>
+        </div>
+
+    </form>
+</main>
+
+</body>
+</html>
