@@ -6,7 +6,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js" integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous" defer></script>
   <script src="scripts/index.js" type="module"></script>
 
-  <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="styles/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,20 +15,40 @@
 <body>
 <h1>Note App</h1>
   <div class="todoswitch"> <!-- TodoSwitch -->
-    <button type="button" class="standard-btn">Create new todo</button>
+    <button type="button" class="standard-btn" onclick="window.location.href = './details.html';">Create new todo</button>
   </div>
 
   <div class="filters"> <!-- Filters -->
-    <button type="button" class="filters-btn filters-drpd">Name</button>
-    <button type="button" class="filters-btn filters-drpd">Due date</button>
-    <button type="button" class="filters-btn filters-drpd">Creation date</button>
-    <button type="button" class="filters-btn filters-drpd">Importance</button>
-    <button type="button" class="filters-btn">Show completed</button>
+    <button type="button" class="filters-drpd">Name</button>
+    <button type="button" class="filters-drpd">Due date</button>
+    <button type="button" class="filters-drpd">Creation date</button>
+    <button type="button" class="filters-drpd">Importance</button>
+    <button type="button" class="standard-btn" id="taskcomplete">Show completed</button>
   </div>
 
-  <div> <!-- List of todos -->
+  <div class="listheader"> <!-- List of todos -->
+    <h3 class="listdesc">Due date</h3>
+    <h3 class="listdesc">Todo</h3>
+    <h3 class="listdesc">Importance</h3>
+  </div>
+  <hr>
+
+  <div class="item"> <!-- Item box -->
+    <div class="date">16.06.2022</div>
+    <div class="titletodo">Title todo</div>
+    <div class="importance">5</div>
+    <div class="donebutton">
+      <input type="radio" id="donebutton" name="done" value="Done">
+      <label for="donebutton">Mark as done</label>
+    </div>
+    <div class="description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</div>
+    <div class="editbutton">
+      <button type="button" id="edit" class="standard-btn" onclick="window.location.href = './details.html';">Edit</button>
+    </div>
 
   </div>
+
+
 
 </body>
 </html>
