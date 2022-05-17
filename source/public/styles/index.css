@@ -1,6 +1,5 @@
 * {
     font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
 }
 
 .standard-btn {
@@ -20,7 +19,11 @@
     color: #5ca5fc;
 }
 
-.filters-btn.filters-drpd {
+#taskcomplete {
+    float: right;
+}
+
+.filters-drpd {
     width: 150px;
     height: 40px;
     margin: 0 15px 0 0;
@@ -31,17 +34,66 @@
     color: white;
 }
 
-.filters-btn {
-    width: 150px;
-    height: 40px;
-    margin: 0 15px 0 0;
-    padding: 11px 20px 10px;
-    border-radius: 5px;
-    background-color: #1f86ff;
-    border: 1px solid transparent;
-    color: white;
+.filters-drpd::after {
+    padding-left: 5px;
+    content: "↓";
 }
 
 .filters {
     margin-top: 20px;
+}
+
+.listheader {
+    display: flex;
+}
+
+.listdesc {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 100%;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 10% 20%;
+    grid-column-gap: 4px;
+    height: 300px;
+    grid-template-rows: 30% 30% 1fr;
+    grid-row-gap: 4px;
+}
+
+.date {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+
+.titletodo {
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 1;
+}
+
+.importance {
+    grid-column: 3 / span 3;
+    grid-row: 1 / span 1;
+}
+
+.editbutton {
+    grid-column: 4 / span 4;
+    grid-row: 1 / span 1;
+}
+
+.donebutton {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 2;
+}
+
+.description {
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 2;
+}
+
+
+
+#edit {
+    width: 100px;
 }
