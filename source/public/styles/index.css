@@ -44,22 +44,27 @@
 }
 
 .listheader {
-    display: flex;
-}
-
-.listdesc {
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: 100%;
+    display: grid;
+    grid-template-columns: 15% 50% 10%;
+    grid-column-gap: 4px;
+    border-bottom: solid 2px;
+    border-color: darkgrey;
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .item {
     display: grid;
-    grid-template-columns: 1fr 1fr 10% 20%;
+    grid-template-columns: 15% 50% 10%;
     grid-column-gap: 4px;
-    height: 300px;
+    height: 150px;
     grid-template-rows: 30% 30% 1fr;
     grid-row-gap: 4px;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: darkgrey;
+    padding: 10px 10px;
 }
 
 .date {
@@ -68,32 +73,31 @@
 }
 
 .titletodo {
-    grid-column: 2 / span 2;
+    grid-column: 2 / span 1;
     grid-row: 1 / span 1;
 }
 
 .importance {
-    grid-column: 3 / span 3;
+    grid-column: 3 / span 1;
     grid-row: 1 / span 1;
 }
 
 .editbutton {
-    grid-column: 4 / span 4;
+    grid-column: 4 / span 1;
     grid-row: 1 / span 1;
 }
 
 .donebutton {
     grid-column: 1 / span 1;
-    grid-row: 2 / span 2;
+    grid-row: 2 / span 1;
 }
 
 .description {
-    grid-column: 2 / span 2;
-    grid-row: 2 / span 2;
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
 }
-
-
 
 #edit {
     width: 100px;
+    float: right;
 }
