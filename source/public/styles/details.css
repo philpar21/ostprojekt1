@@ -15,12 +15,20 @@
 
 .inputfields {
     margin-top: 20px;
-    padding: 2rem;
+    margin-bottom: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
+}
+
+#description {
+    height: 80px;
 }
 
 form {
     max-width: 800px;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: darkgrey;
+    padding: 10px 10px;
 }
