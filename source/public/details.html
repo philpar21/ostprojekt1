@@ -9,18 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-    <script src="scripts/details.js"></script>
+    <script src="scripts/details.js" defer></script>
 
 </head>
 <body>
 
 <main>
-    <form id="form" action="./index.html" action="POST">
-        <div>
+    <form class="todos">
+        <div class="done">
             <legend>Mark as done</legend>
-            <input type="radio" name="grid" id="yes" value="yes">
+            <input type="radio" name="completed" id="yes" value="yes">
             <label for="yes">Yes</label>
-            <input type="radio" name="grid" id="no" value="no">
+            <input type="radio" name="completed" id="no" value="no">
             <label for="no">No</label>
         </div>
 
@@ -32,7 +32,7 @@
             <textarea id="description" name="description" required minlength="10" maxlength="200"></textarea>
 
             <label for="importance">Importance</label>
-            <select name="importance" id="importance">
+            <select id="importance" name="importance" >
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -45,13 +45,15 @@
         </div>
 
         <div class="all-btn">
-            <button id="btn" type="submit">Update</button>
-            <button id="btn" type="submit">Update & back</button>
-            <button id="btn" type="submit" formnovalidate>Don't save & close</button>
+            <button class="btn" type="submit" id="create">Create</button>
+            <button class="btn" type="submit" id="update">Update</button>
+            <button formnovalidate class="btn" type="button" id="close">Don't save & close</button>
         </div>
 
     </form>
+
 </main>
 
 </body>
+
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Note App</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js" integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous" defer></script>
-  <script src="scripts/index.js" type="module"></script>
+  <script src="scripts/index.js" type="module" defer></script>
 
   <link rel="stylesheet" href="styles/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
   </div>
 
   <div class="filters"> <!-- Filters -->
-    <button type="button" class="filters-drpd">Name</button>
+    <button type="button" class="filters-drpd" data-sort="name">Name</button>
     <button type="button" class="filters-drpd">Due date</button>
     <button type="button" class="filters-drpd">Creation date</button>
     <button type="button" class="filters-drpd">Importance</button>
@@ -32,7 +32,7 @@
     <h3 class="listdesc">Importance</h3>
   </div>
 
-  <div class="item"> <!-- Item box -->
+  <div class="item" id="todo-container"> <!-- Item box -->
     <div class="date">16.06.2022</div>
     <div class="titletodo">Title todo</div>
     <div class="importance">5</div>
@@ -46,6 +46,12 @@
     </div>
 
   </div>
+
+
+
+<div class="emptydodo">
+  <button type="button" id="clicktodos">Get todos</button>
+</div>
 
 
 
