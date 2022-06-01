@@ -47,10 +47,8 @@ function getNewTodo(){
 
      let { completed, title, description, importance, duedate } = getTodo;
 
-     console.log(completed);
-
      const addTodo = document.createElement('div');
-     addTodo.textContent = `Completed ${completed} Title ${title} Description ${description} Importance ${importance} Due date ${duedate}`;
+     addTodo.innerHTML = `Completed ${completed} Title ${title} Description ${description} Importance ${importance} Due date ${duedate}`;
      document.querySelector('.emptydodo').appendChild(addTodo);
 }
 

@@ -1,4 +1,8 @@
-/*close without save */
+/* import storage function */
+
+// import { storageController } from './details-storage.js';
+
+/* close without save */
 
 const element = document.getElementById('close');
 
@@ -8,7 +12,7 @@ function closeNewTodo(){
 
 element.addEventListener('click', closeNewTodo);
 
-/*save form data to local storage*/
+/* save form data to local storage */
 
 const form = document.forms[0];
 
@@ -24,6 +28,9 @@ form.addEventListener("submit", function(event) {
 
     console.log(data);
 
+    // storageController("todos", data);
+
     localStorage.setItem("todos", JSON.stringify(data))
 
 });
+
