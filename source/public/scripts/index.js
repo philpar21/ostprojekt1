@@ -1,3 +1,4 @@
+// import { getTodo } from './storage-controller.js';
 
 /* Create todos , open details.js */
 
@@ -37,22 +38,34 @@ document.querySelector(".filters").addEventListener("click", (event) => {
     console.log(event.target)
 })
 
-/* Add todos manually */
+/* Edit button */
 
-const element2 = document.getElementById('clicktodos');
+const btn = document.createElement("button");
+btn.innerHTML = "Edit";
+btn.type = "button";
+btn.name = "formBtn";
+btn.id = // get ID here?
+
+/* Add todos */
 
 function getNewTodo(){
-     const getTodo = JSON.parse(localStorage.getItem("todos")) || []
-     console.log(getTodo);
+    const getTodo = JSON.parse(localStorage.getItem("todos")) || []
+    console.log(getTodo);
 
-     let { completed, title, description, importance, duedate } = getTodo;
+     const { completed, title, description, importance, duedate, id } = getTodo;
 
      const addTodo = document.createElement('div');
      addTodo.innerHTML = `Completed ${completed} Title ${title} Description ${description} Importance ${importance} Due date ${duedate}`;
      document.querySelector('.emptydodo').appendChild(addTodo);
+
+     document.querySelector('.emptydodo').appendChild(btn);
 }
 
-element2.addEventListener('click', getNewTodo);
+getNewTodo();
+
+const element2 = document.getElementById('id');
+
+element2.addEventListener('click', console.log('edit'));
 
 
 
