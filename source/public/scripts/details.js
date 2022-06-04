@@ -1,6 +1,6 @@
 /* import storage function */
 
-import { storageController } from './storage-controller.js';
+import { setTodo, generateID } from './storage-controller.js';
 
 /* close without save */
 
@@ -18,11 +18,7 @@ function closeDetails() {
     window.location.replace('index.html' );
 }
 
-/* generate ID */
 
-function generateID() {
-    return Math.floor(Math.random() * 10000000);
-}
 
 /* save form data to local storage */
 
@@ -40,7 +36,7 @@ form.addEventListener("submit", function(event) {
         console.log(formElement);
     }
 
-    storageController("todos", data);
+    setTodo(data);
 
     closeDetails();
 

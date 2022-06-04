@@ -1,11 +1,26 @@
-/*  local storage controller */
+/*  set Todo  */
 
-function storageController(key, data) {
-    localStorage.setItem("todos", JSON.stringify(data))
+function setTodo(data) {
+
+    const todoId = Math.floor(Math.random() * 10000000);
+    data.push('ourNewIDforStorage', todoId);
+    localStorage.setItem(todoId, JSON.stringify(data))
 }
 
- /* function getTodo(key, data) {
-    JSON.parse(localStorage.getItem("todos", data) || []);
-} */
 
-export { storageController };
+/*  get Todo  */
+
+
+function getTodo(key) {
+    return JSON.parse(localStorage.getItem(key) || []);
+
+}
+
+/* generate ID */
+
+function generateID() {
+    return Math.floor(Math.random() * 10000000);
+}
+
+export { setTodo, getTodo, generateID };
+
