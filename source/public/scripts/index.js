@@ -44,16 +44,16 @@ const btn = document.createElement("button");
 btn.innerHTML = "Edit";
 btn.type = "button";
 btn.name = "formBtn";
-// btn.id = get ID here?
+
 
 /* Add todos */
 
 function getNewTodo(){
 
-     const { completed, title, description, importance, duedate } = getTodo("todos");
+     const { completed, title, description, importance, duedate, id } = getTodo();
 
      const addTodo = document.createElement('div');
-     addTodo.innerHTML = `Completed ${completed} Title ${title} Description ${description} Importance ${importance} Due date ${duedate}`;
+     addTodo.innerHTML = `Completed ${completed} Title ${title} Description ${description} Importance ${importance} Due date ${duedate} ID ${id}`;
      document.querySelector('.emptydodo').appendChild(addTodo);
 
      document.querySelector('.emptydodo').appendChild(btn);
@@ -61,9 +61,7 @@ function getNewTodo(){
 
 getNewTodo();
 
-// const element2 = document.getElementById('id');
 
-// element2.addEventListener('click', console.log('edit'));
 
 
 
