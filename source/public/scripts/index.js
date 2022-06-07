@@ -1,4 +1,5 @@
-import { getTodo, generatedID } from './storage-controller.js';
+import { getTodo, updateTodo } from './storage-controller.js';
+
 /* Create todos , open details.js */
 
 const element = document.getElementById('createtodo');
@@ -37,52 +38,67 @@ document.querySelector(".filters").addEventListener("click", (event) => {
     console.log(event.target)
 })
 
+
+/* Edit todos */
+
+function editTodo(){
+        window.location.assign('details.html');
+        updateTodo();
+}
+
 /* Add todos */
 
 function getNewTodo(){
 
-    const { completed, title, description, importance, duedate, id } = getTodo();
+        const {completed, title, description, importance, duedate, uniqueId} = getTodo();
 
-    const addTodo = document.createElement('div');
-    document.querySelector('.emptydodo').appendChild(addTodo);
+        const addTodo = document.createElement('div');
+        addTodo.setAttribute('id', `${uniqueId}`);
+        document.querySelector('.emptydodo').insertAdjacentElement("beforeend", addTodo);
 
-    const dateNew = document.createElement('div');
-    dateNew.innerHTML = `${duedate}`;
-    document.querySelector('.dateNew').appendChild(dateNew);
+        const dateNew = document.createElement('div');
+        dateNew.innerHTML = `${duedate}`;
+        document.querySelector('.dateNew').appendChild(dateNew);
 
-    const titletodoNew = document.createElement('div');
-    titletodoNew.innerHTML = `${title}`;
-    document.querySelector('.titletodoNew').appendChild(titletodoNew);
+        const titletodoNew = document.createElement('div');
+        titletodoNew.innerHTML = `${title}`;
+        document.querySelector('.titletodoNew').appendChild(titletodoNew);
 
-    const importanceNew = document.createElement('div');
-    importanceNew.innerHTML = `${importance}`;
-    document.querySelector('.importanceNew').appendChild(importanceNew);
+        const importanceNew = document.createElement('div');
+        importanceNew.innerHTML = `${importance}`;
+        document.querySelector('.importanceNew').appendChild(importanceNew);
 
-    const donebuttonNew = document.createElement('div');
-    donebuttonNew.innerHTML = `${completed}`;
-    document.querySelector('.donebuttonNew').appendChild(donebuttonNew);
+        const donebuttonNew = document.createElement('div');
+        donebuttonNew.innerHTML = `${completed}`;
+        document.querySelector('.donebuttonNew').appendChild(donebuttonNew);
 
-    const descriptionNew = document.createElement('div');
-    descriptionNew.innerHTML = `${description}`;
-    document.querySelector('.descriptionNew').appendChild(descriptionNew);
+        const descriptionNew = document.createElement('div');
+        descriptionNew.innerHTML = `${description}`;
+        document.querySelector('.descriptionNew').appendChild(descriptionNew);
 
-    const editButtonNew = document.createElement('button');
-    editButtonNew.innerHTML = 'Edit';
-    editButtonNew.type = 'button';
-    editButtonNew.style.color = '#ffffff';
-    editButtonNew.style.backgroundColor = '#1f86ff';
-    editButtonNew.style.borderRadius = '5px';
-    editButtonNew.style.border = '1px solid transparent';
-    editButtonNew.style.width = '100px';
-    editButtonNew.style.height = '40px';
-    editButtonNew.style.margin = '0 15px 0 0';
-    editButtonNew.style.padding = '11px 20px 10px';
-    editButtonNew.style.float = 'right';
-    document.querySelector('.editButtonNew').appendChild(editButtonNew);
-
+        const editButtonNew = document.createElement('button');
+        editButtonNew.setAttribute('id', `${uniqueId}`);
+        editButtonNew.innerHTML = 'Edit';
+        editButtonNew.type = 'button';
+        editButtonNew.style.color = '#ffffff';
+        editButtonNew.style.backgroundColor = '#1f86ff';
+        editButtonNew.style.borderRadius = '5px';
+        editButtonNew.style.border = '1px solid transparent';
+        editButtonNew.style.width = '100px';
+        editButtonNew.style.height = '40px';
+        editButtonNew.style.margin = '0 15px 0 0';
+        editButtonNew.style.padding = '11px 20px 10px';
+        editButtonNew.style.float = 'right';
+        document.querySelector('.editButtonNew').appendChild(editButtonNew);
+        editButtonNew.addEventListener('click', (editTodo));
 }
 
 getNewTodo();
+
+
+
+
+
 
 
 

@@ -15,7 +15,7 @@ element.addEventListener('click', closeNewTodo);
 /* go to details function */
 
 function closeDetails() {
-    window.location.replace('index.html' );
+    window.location.assign('index.html' );
 }
 
 
@@ -27,7 +27,7 @@ const form = document.forms[0];
 form.addEventListener("submit", function(event) {
     event.preventDefault();
     const formData = new FormData(this);
-    formData.append('id', generatedID);
+    formData.append('uniqueId', generatedID);
     const entries = formData.entries();
     const data = Object.fromEntries(entries);
 
