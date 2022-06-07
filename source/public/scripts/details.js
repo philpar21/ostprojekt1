@@ -1,6 +1,6 @@
 /* import storage function */
 
-import { setTodo, generateID } from './storage-controller.js';
+import { setTodo, generatedID } from './storage-controller.js';
 
 /* close without save */
 
@@ -27,7 +27,7 @@ const form = document.forms[0];
 form.addEventListener("submit", function(event) {
     event.preventDefault();
     const formData = new FormData(this);
-    formData.append('id', generateID());
+    formData.append('id', generatedID);
     const entries = formData.entries();
     const data = Object.fromEntries(entries);
 

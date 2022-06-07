@@ -1,27 +1,24 @@
 /* generate ID */
 
-function generateID() {
-    return Math.floor(Math.random() * 10000000);
-}
+const generatedID = Math.floor(Math.random() * 10000000);
 
 
 
 /*  set to do  */
 
 function setTodo(data) {
-    localStorage.setItem('todos', JSON.stringify(data));
+    localStorage.setItem(generatedID, JSON.stringify(data));
 }
+
 
 
 /*  get to do  */
 
 function getTodo() {
-    return JSON.parse(localStorage.getItem('todos') || []);
+    return JSON.parse(localStorage.getItem(localStorage.key(0)) || []);
 }
 
 
-
-
-export { generateID, setTodo, getTodo };
+export { generatedID, setTodo, getTodo };
 
 
