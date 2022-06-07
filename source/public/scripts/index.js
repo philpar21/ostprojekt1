@@ -42,6 +42,7 @@ document.querySelector(".filters").addEventListener("click", (event) => {
 /* Edit todos */
 
 function editTodo(){
+        document.getElementById('');
         window.location.assign('details.html');
         updateTodo();
 }
