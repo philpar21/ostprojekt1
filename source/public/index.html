@@ -20,10 +20,10 @@
 
   <div class="filters"> <!-- Filters -->
     <button type="button" class="filters-drpd" data-sort="name">Name</button>
-    <button type="button" class="filters-drpd">Due date</button>
-    <button type="button" class="filters-drpd">Creation date</button>
-    <button type="button" class="filters-drpd">Importance</button>
-    <button type="button" class="standard-btn" id="taskcomplete">Show completed</button>
+    <button type="button" class="filters-drpd" data-sort="due-date">Due date</button>
+    <button type="button" class="filters-drpd" data-sort="creation-date">Creation date</button>
+    <button type="button" class="filters-drpd" data-sort="importance">Importance</button>
+    <button type="button" class="standard-btn" data-sort="completed" id="taskcomplete">Show completed</button>
   </div>
 
   <div class="listheader"> <!-- List of todos -->
@@ -32,31 +32,7 @@
     <h3 class="listdesc">Importance</h3>
   </div>
 
-  <div class="item" id="todo-container"> <!-- Item box -->
-    <div class="date">16.06.2022</div>
-    <div class="titletodo">Title todo</div>
-    <div class="importance">5</div>
-    <div class="donebutton">
-      <input type="radio" id="donebutton" name="done" value="Done">
-      <label for="donebutton">Mark as done</label>
-    </div>
-    <div class="description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</div>
-    <div class="editbutton">
-      <button type="button" id="edit" class="standard-btn">Edit</button>
-    </div>
-
-  </div>
-
-
-
-<div class="emptydodo">
-  <div class="dateNew"></div>
-  <div class="titletodoNew"></div>
-  <div class="importanceNew"></div>
-  <div class="donebuttonNew"></div>
-  <div class="descriptionNew"></div>
-  <div class="editButtonNew"></div>
-</div>
+<div id="item-wrapper"></div>
 
 
 
