@@ -1,4 +1,4 @@
-import { getById, addTodo, updateTodo } from './controllers/todo-controller.js';
+import { getById, addTodo, updateTodo, deleteTodo } from './controllers/todo-controller.js';
  
 const element = document.getElementById('close');
 
@@ -12,6 +12,12 @@ function closeDetails() {
     window.location.assign('index.html' );
 }
 
+function getUrlId() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get('todoid')
+}
+
 
 const form = document.forms[0];
 form.addEventListener("submit", function(event) {
@@ -19,11 +25,7 @@ form.addEventListener("submit", function(event) {
     const formData = new FormData(this);
     const entries = formData.entries();
     const data = Object.fromEntries(entries);
-    
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('todoid')
-    
+    const id = getUrlId();
     if(id) {
         updateTodo(id, data);
     } else {
@@ -32,6 +34,13 @@ form.addEventListener("submit", function(event) {
     
     closeDetails();
 });
+
+const deleteButton = document.getElementById('delete')
+deleteButton.addEventListener('click', () => {
+    const id = getUrlId();
+    deleteTodo(id);
+    closeDetails();
+})
 
 function setFields() {
     const queryString = window.location.search;
@@ -44,10 +53,11 @@ function setFields() {
         document.getElementById('title').value = todo.title;
         document.getElementById('description').value = todo.description;
         document.getElementById('importance').value = todo.importance;
-        document.getElementById('duedate').value = todo.duedate;
+        document.getElementById('duedate').value = new Date(todo.duedate).toISOString().split('T')[0];
         document.getElementById('create').style.display = 'none';
     } else {
         document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
         document.getElementById('no').checked = true;
     }
 }

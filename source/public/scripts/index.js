@@ -34,7 +34,7 @@ function sortAndDisplayElementsByName() {
     const todos = getTodos();
     clearLabels();
     clearSortedVars('name')
-
+    
     if (nameSorted === 'low-high') {
         document.getElementById('item-wrapper').innerHTML = "";
         todos.sort(function(a, b){
@@ -47,7 +47,7 @@ function sortAndDisplayElementsByName() {
         nameSorted = 'high-low';
         return;
     }
-
+    
     nameSorting.innerHTML = 'Name ↓';
     todos.sort(function(a, b){
         if(a.title < b.title) { return -1; }
@@ -64,7 +64,7 @@ function sortAndDisplayElementsByDueDate() {
     const todos = getTodos();
     clearLabels();
     clearSortedVars('duedate')
-
+    
     if(dueDateSorted === 'low-high') {
         sortingButton.innerHTML = 'Due Date ↑';
         todos.sort(function(a, b){
@@ -77,7 +77,7 @@ function sortAndDisplayElementsByDueDate() {
         dueDateSorted = 'high-low';
         return;
     }
-
+    
     sortingButton.innerHTML = 'Due Date ↓';
     todos.sort(function(a, b){
         if(a.duedate < b.duedate) { return -1; }
@@ -87,7 +87,7 @@ function sortAndDisplayElementsByDueDate() {
     document.getElementById('item-wrapper').innerHTML = "";
     renderTodos(todos);
     dueDateSorted = 'low-high';
-
+    
 }
 
 function sortAndDisplayElementsByCreationDate() {
@@ -95,7 +95,7 @@ function sortAndDisplayElementsByCreationDate() {
     const todos = getTodos();
     clearLabels();
     clearSortedVars('creationdate')
-
+    
     if(creationDateSorted === 'low-high') {
         sortingButton.innerHTML = 'Creation Date ↑';
         todos.sort(function(a, b){
@@ -108,8 +108,8 @@ function sortAndDisplayElementsByCreationDate() {
         creationDateSorted = 'high-low';
         return;
     }
-
-
+    
+    
     sortingButton.innerHTML = 'Creation Date ↓';
     todos.sort(function(a, b){
         if(a.creationdate < b.creationdate) { return -1; }
@@ -127,7 +127,7 @@ function sortAndDisplayElementsByImportance() {
     const todos = getTodos();
     clearLabels();
     clearSortedVars('importance')
-
+    
     if(importanceSorted === 'low-high') {
         sortingButton.innerHTML = 'Importance ↑';
         todos.sort(function(a, b){
@@ -140,7 +140,7 @@ function sortAndDisplayElementsByImportance() {
         importanceSorted = 'high-low';
         return;
     }
-
+    
     sortingButton.innerHTML = 'Importance ↓';
     todos.sort(function(a, b){
         if(a.importance < b.importance) { return -1; }
@@ -153,12 +153,13 @@ function sortAndDisplayElementsByImportance() {
 }
 
 function markCompleted(){
+    const elementCompleted = document.getElementById('taskcomplete');
     if (showOnlyCompleted) {
-        elementCompleted.style.backgroundColor = 'red';
         elementCompleted.innerHTML = 'Complete';
+        elementCompleted.classList.add('selected')
     } else {
-        elementCompleted.style.backgroundColor = '#1f86ff';
         elementCompleted.innerHTML = 'Show completed';
+        elementCompleted.classList.remove('selected')
     }
 }
 
@@ -171,7 +172,6 @@ function toggleCompletedOnly() {
 }
 
 document.querySelector(".filters").addEventListener("click", (event) => {
-    console.log(event.target.attributes['data-sort'].value)
     const sortType = event.target.attributes['data-sort'].value;
     if (sortType === 'name') {
         sortAndDisplayElementsByName();
@@ -207,11 +207,11 @@ function renderTodos(todos) {
     const itemWrapper = document.getElementById('item-wrapper');
     const filteredTodos = showOnlyCompleted ? todos.filter(todo => todo.completed) : todos
     filteredTodos.forEach(todo => {
-        const {completed, title, description, importance, duedate, id} = todo;
+        const {completed, title, description, importance, duedate, _id} = todo;
         const item = document.createElement("div");
         item.className = "item"
 
-        const date = divCreator(duedate, "date");
+        const date = divCreator(new Date(duedate).toISOString().split('T')[0], "date");
         item.appendChild(date);
 
         const titleTodo = divCreator(title, "titleTodo");
@@ -226,13 +226,11 @@ function renderTodos(todos) {
         const radioButton = document.createElement('input');
         radioButton.type = 'radio';
         radioButton.className = 'donebutton';
-        radioButton.value = `${id}`;
-        radioButton.name = `${id}`;
+        radioButton.value = `${_id}`;
+        radioButton.name = `${_id}`;
         radioButton.checked = completed ? 'checked' : undefined;
         radioButton.onclick = (event) => {
-            console.log("🚀 ~ file: index.js ~ line 15 ~ markAsDoneButton.addEventListener ~ event", event.target.value) 
             markAsDone(event.target.value)
-            
         }
         buttonWrapper.appendChild(radioButton)
         const radioLabel = document.createElement('label');
@@ -252,7 +250,7 @@ function renderTodos(todos) {
         editButton.id = "edit"
         editButton.className = "standard-btn";
         editButton.innerHTML = 'Edit';
-        editButton.setAttribute('href', `${window.location.origin}/details.html?todoid=${id}`);
+        editButton.setAttribute('href', `${window.location.origin}/details.html?todoid=${_id}`);
         editButtonWrapper.appendChild(editButton);
         item.appendChild(editButtonWrapper);
 

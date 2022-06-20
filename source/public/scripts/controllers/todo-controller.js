@@ -19,11 +19,13 @@ export function getById(id) {
 
 export function updateTodo(id, data) {
     data.completed = data.completed === 'yes';
-    data.id = id;
     model.updateTodo(id, data);
-    return true;
 }
 
 export function markAsDone(id) {
     model.markAsDone(id);
+}
+
+export function deleteTodo(id) {
+    model.deleteTodo(id);
 }

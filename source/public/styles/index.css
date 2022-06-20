@@ -38,6 +38,14 @@
     margin-top: 20px;
 }
 
+.complete-btn {
+    background-color: #1f86ff;
+}
+
+.complete-btn.selected {
+    background-color: red;
+}
+
 .listheader {
     display: grid;
     grid-template-columns: 15% 50% 10%;
