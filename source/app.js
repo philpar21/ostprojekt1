@@ -22,7 +22,7 @@ app.use(bodyParser.json())
 app.use('/todos', todosRoute)
 app.use(express.static(path.resolve('public')));
 
-const port = 80
+const port = ''
 const hostname = 'localhost'
 
 // Connect to DB
