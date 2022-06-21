@@ -22,9 +22,11 @@ app.use(bodyParser.json())
 app.use('/todos', todosRoute)
 app.use(express.static(path.resolve('public')));
 
+const port = 3001
+const hostname = 'localhost'
 
 // Connect to DB
-mongoose.connect(process.env.DB_CONNECTION, () => console.log('connected'));
+mongoose.connect(process.env.DB_CONNECTION, () => console.log(`DB connected, Server running at http://${hostname}:${port}/`));
 
 // listen
-app.listen(3001);
+app.listen(port);
