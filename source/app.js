@@ -4,7 +4,7 @@ import path, {dirname} from 'path';
 import dotenv from "dotenv";
 import cors from 'cors';
 import mongoose from 'mongoose';
-import todosRoute from './routes/todos.js';
+import todosRoute from './routes/todo-routes.js';
 import {fileURLToPath} from "url";
 dotenv.config({ path: `.env${process.env.NODE_ENV ? `-${process.env.NODE_ENV}` : ''}`});
 
@@ -22,11 +22,12 @@ app.use(bodyParser.json())
 app.use('/todos', todosRoute)
 app.use(express.static(path.resolve('public')));
 
-const port = 8080
+const port = 3001
 const hostname = 'localhost'
 
 // Connect to DB
-mongoose.connect(process.env.DB_CONNECTION, () => console.log(`DB connected, Server running at http://${hostname}:${port}/`));
+mongoose.connect(process.env.DB_CONNECTION, () => console.log(`DB connected`));
 
 // listen
-app.listen(port);
+app.listen(port,() => {
+    console.log(`Server running at http://${hostname}:${port}/`)});

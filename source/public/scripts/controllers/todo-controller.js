@@ -1,4 +1,4 @@
-import * as model from "../models/todo-model.js";
+import * as model from "../services/todo-service.js";
 
 
 export function addTodo(data) {
