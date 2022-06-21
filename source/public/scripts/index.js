@@ -1,6 +1,5 @@
 import { getTodos, markAsDone } from './controllers/todo-controller.js';
 
-
 let nameSorted = 'none';
 let dueDateSorted = 'none';
 let creationDateSorted = 'none';

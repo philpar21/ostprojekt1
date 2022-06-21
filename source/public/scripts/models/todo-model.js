@@ -1,9 +1,8 @@
 let todos = [];
 todos = await getItemsFromAPI()
-localStorage.setItem('todos', JSON.stringify(todos));
 
 function getAPIURL() {
-    return 'http://localhost:3005/todos';
+    return '/todos';
 }
 
 async function getItemsFromAPI() {
@@ -29,13 +28,11 @@ export async function addTodo(data) {
         })
         let result = await response.json();
         todos.push(data);
-        localStorage.setItem('todos', JSON.stringify(todos));
+
         return result;
     } catch (error) {
         throw error;
     }
-
-    
 }
 
 export function getTodos() {
@@ -49,7 +46,6 @@ export function getById(id) {
 export async function updateTodo(id, todo) {
     var foundIndex = todos.findIndex(item => item.id == id);
     todos[foundIndex] = todo;
-    localStorage.setItem('todos', JSON.stringify(todos));
     const todoAPIURL = getAPIURL();
     try {
         let response = await fetch(`${todoAPIURL}/${id}`, {
@@ -60,16 +56,15 @@ export async function updateTodo(id, todo) {
             body: JSON.stringify(todo)
         })
         let result = await response.json();
+        return result;
     } catch (error) {
         throw error;
     }
-    return todos;
 }
 
 export async function markAsDone(id) {
     var foundIndex = todos.findIndex(item => item._id == id);
     todos[foundIndex].completed = true;
-    localStorage.setItem('todos', JSON.stringify(todos));
     const todoAPIURL = getAPIURL();
     try {
         let response = await fetch(`${todoAPIURL}/${id}`, {
@@ -87,8 +82,6 @@ export async function markAsDone(id) {
 }
 
 export async function deleteTodo(id) {
-    const newTodos = todos.filter(todo => todo.id != id)
-    localStorage.setItem('todos', JSON.stringify(newTodos));
     const todoAPIURL = getAPIURL();
 
     try {
@@ -96,6 +89,7 @@ export async function deleteTodo(id) {
                 method: 'DELETE',
             })
         let result = await response.json();
+        return result;
     } catch (error) {
         throw error;
     }

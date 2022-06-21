@@ -1,11 +1,8 @@
 import * as model from "../models/todo-model.js";
 
-export const generatedID = () => Math.floor(Math.random() * 10000000);
 
 export function addTodo(data) {
-    data.id = generatedID();
     data.completed = data.completed === 'yes';
-    data.creationdate = Date.now()
     model.addTodo(data);
 }
 
