@@ -10,19 +10,21 @@ dotenv.config({ path: `.env${process.env.NODE_ENV ? `-${process.env.NODE_ENV}` :
 
 // load config-file
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const router = express.Router();
 
 export const app = express();
 
-// Middleware
+// Middlewares
 app.use(cors());
 app.use(bodyParser.json())
 
 // Routes
 app.use('/todos', todosRoute)
+app.use(express.static(path.resolve('public')));
+
 
 // Connect to DB
 mongoose.connect(process.env.DB_CONNECTION, () => console.log('connected'));
 
 // listen
-app.listen(3005);
-
+app.listen(3001);
