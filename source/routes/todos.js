@@ -52,7 +52,7 @@ router.patch('/:postId', async (req, res) => {
 
 router.delete('/:postId', async(req, res) => {
     try {
-        const removedTodo = await Todos.remove({_id: req.params.postId})
+        const removedTodo = await Todos.deleteOne({_id: req.params.postId})
         res.json(removedTodo);
     } catch (error) {
         res.json({message: error});
