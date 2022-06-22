@@ -1,17 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import path, {dirname} from 'path';
-import dotenv from "dotenv";
 import cors from 'cors';
-import mongoose from 'mongoose';
 import todosRoute from './routes/todo-routes.js';
 import {fileURLToPath} from "url";
-dotenv.config({ path: `.env${process.env.NODE_ENV ? `-${process.env.NODE_ENV}` : ''}`});
+
 
 // load config-file
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const router = express.Router();
 
+//call express
 export const app = express();
 
 // Middlewares
@@ -22,12 +20,4 @@ app.use(bodyParser.json())
 app.use('/todos', todosRoute)
 app.use(express.static(path.resolve('public')));
 
-const port = process.env.PORT
-const hostname = 'localhost'
 
-// Connect to DB
-mongoose.connect(process.env.DB_CONNECTION, () => console.log(`DB connected`));
-
-// listen
-app.listen(port,() => {
-    console.log(`Server running at http://${hostname}:${port}/`)});
