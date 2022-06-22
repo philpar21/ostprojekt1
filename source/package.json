@@ -2,13 +2,13 @@
   "name": "demo",
   "version": "1.0.0",
   "description": "Express Demo",
-  "main": "index.js",
+  "main": "index-start.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon index-start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
-  "author": "mgfeller",
+  "author": "ps",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
