@@ -9,6 +9,7 @@ import {fileURLToPath} from "url";
 // load config-file
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+
 //call express
 export const app = express();
 
@@ -19,5 +20,4 @@ app.use(bodyParser.json())
 // Routes
 app.use('/todos', todosRoute)
 app.use(express.static(path.resolve('public')));
-
 
