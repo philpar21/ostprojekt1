@@ -1,28 +1,30 @@
 import * as model from "../services/todostoreAPIcall.js";
 
 
-export function addTodo(data) {
+function addTodo(data) {
     data.completed = data.completed === 'yes';
     model.addTodo(data);
 }
 
-export function getTodos() {
+function getTodos() {
     return model.getTodos();
 }
 
-export function getById(id) {
+function getById(id) {
     return model.getById(id)
 }
 
-export function updateTodo(id, data) {
+function updateTodo(id, data) {
     data.completed = data.completed === 'yes';
     model.updateTodo(id, data);
 }
 
-export function markAsDone(id) {
+function markAsDone(id) {
     model.markAsDone(id);
 }
 
-export function deleteTodo(id) {
+function deleteTodo(id) {
     model.deleteTodo(id);
 }
+
+export { addTodo, getTodos, getById, updateTodo, markAsDone, deleteTodo };
