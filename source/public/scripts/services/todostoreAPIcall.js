@@ -16,7 +16,7 @@ async function getItemsFromAPI() {
     }
 }
 
-export async function addTodo(data) {
+async function addTodo(data) {
     const todoAPIURL = getAPIURL();
     try {
         let response = await fetch(todoAPIURL, {
@@ -35,15 +35,15 @@ export async function addTodo(data) {
     }
 }
 
-export function getTodos() {
+function getTodos() {
     return todos;
 }
 
-export function getById(id) {
+function getById(id) {
     return todos.find(todo => todo._id == id);
 }
 
-export async function updateTodo(id, todo) {
+async function updateTodo(id, todo) {
     var foundIndex = todos.findIndex(item => item.id == id);
     todos[foundIndex] = todo;
     const todoAPIURL = getAPIURL();
@@ -62,7 +62,7 @@ export async function updateTodo(id, todo) {
     }
 }
 
-export async function markAsDone(id) {
+async function markAsDone(id) {
     var foundIndex = todos.findIndex(item => item._id == id);
     todos[foundIndex].completed = true;
     const todoAPIURL = getAPIURL();
@@ -81,7 +81,7 @@ export async function markAsDone(id) {
     }
 }
 
-export async function deleteTodo(id) {
+async function deleteTodo(id) {
     const todoAPIURL = getAPIURL();
 
     try {
@@ -95,3 +95,5 @@ export async function deleteTodo(id) {
     }
 
 }
+
+export { addTodo, getTodos, getById, updateTodo, markAsDone, deleteTodo}
