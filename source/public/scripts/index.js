@@ -23,7 +23,7 @@ function clearLabels() {
     document.querySelector('[data-sort="name"]').innerHTML = 'Name';
     document.querySelector('[data-sort="due-date"]').innerHTML = 'Due Date';
     document.querySelector('[data-sort="creation-date"]').innerHTML = 'Creation Date';
-    document.querySelector('[data-sort="importance"]').innerHTML = 'importance';
+    document.querySelector('[data-sort="importance"]').innerHTML = 'Importance';
 }
 
 /* Sort functions */
